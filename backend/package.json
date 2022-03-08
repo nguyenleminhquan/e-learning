@@ -1,12 +1,24 @@
 {
-  "name": "backend",
+  "name": "e-learning-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "helmet": "^4.6.0",
+    "http-errors": "^2.0.0",
+    "mongoose": "^6.1.4",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {
+    "dotenv": "^10.0.0"
+  }
 }
