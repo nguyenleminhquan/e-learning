@@ -6,6 +6,8 @@ import errorHander from './middlewares/errorHandler.js'
 import APINotFoundHandler from './middlewares/APINotFoundHandler.js'
 import connectDB from './config/db.js'
 
+import userRoutes from './routes/user.routes.js'
+
 connectDB()
 dotenv.config()
 
@@ -20,6 +22,8 @@ app.use(helmet())
 app.get('/', (req, res, next) => {
     res.send('API is running!')
 })
+
+app.use('/user', userRoutes)
 
 app.use(APINotFoundHandler)
 app.use(errorHander)
