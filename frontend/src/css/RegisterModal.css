@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@700&display=swap');
+
+.register-modal {
+    width: 35%;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.register__title {
+    font-family: 'Cabin', sans-serif;
+}
+
+.form-label {
+    width: 100%;
+}
