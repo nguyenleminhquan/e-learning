@@ -19,11 +19,12 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(helmet())
 
+app.use('/user', userRoutes)
+
 app.get('/', (req, res, next) => {
     res.send('API is running!')
 })
 
-app.use('/user', userRoutes)
 
 app.use(APINotFoundHandler)
 app.use(errorHander)
