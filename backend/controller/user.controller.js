@@ -7,7 +7,7 @@ const userRegister = async (req, res, next) => {
     const body = req.body
     // find exist account
     const exist = await User.findOne({ username: body.username })
-    
+
     if (exist) {
         return next(createError(400, "Username is exist"))
     } else {
