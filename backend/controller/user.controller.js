@@ -26,7 +26,7 @@ const userRegister = async (req, res, next) => {
             })
             next()
         } catch (error) {
-            throw new Error(error)
+            next(error)
         }
     }
 }
