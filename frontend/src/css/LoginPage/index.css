@@ -1,0 +1,11 @@
+.login-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    height: 100vh;
+}
+.login-form {
+    background-color: #f5f5f5;
+    padding: 28px;
+    border-radius: 10px;
+}
