@@ -17,7 +17,8 @@ const courseSchema = mongoose.Schema({
         default: null
     }],
     startDay: { type: Date },
-    endDate: { type: Date }
+    endDate: { type: Date },
+    description: String
 })
 
 export default mongoose.model('Course', courseSchema)

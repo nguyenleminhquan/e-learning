@@ -11,7 +11,8 @@ const createCourse = async (req, res, next) => {
                 name: body.name,
                 teacher: teacher._id,
                 startDay: new Date(body.startDay),
-                endDate: new Date(body.endDate)
+                endDate: new Date(body.endDate),
+                description: body.description
             })
 
             newCourse = await newCourse.save()
@@ -30,6 +31,7 @@ const createCourse = async (req, res, next) => {
                 startDay: newCourse.startDay,
                 endDate: newCourse.endDate,
                 students: newCourse.students,
+                description: newCourse.description
             })
         } catch (error) {
             next(error)
