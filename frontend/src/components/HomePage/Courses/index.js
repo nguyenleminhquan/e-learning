@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import '../../css/HomePage/Courses.css'
+import '../../../css/HomePage/Courses/CourseLists.css'
 
-function Courses() {
+function CourseLists() {
     const user = useSelector(state => state.user)
 
     const handleCourseHeaderBtn = () => {
@@ -16,7 +16,6 @@ function Courses() {
                 <Link 
                     className="courses__header-btn btn btn-success"
                     to={user.role === 'teacher' ? 'create-course' : 'participate'}
-                    onClick={handleCourseHeaderBtn}
                 >
                     <i className="bi bi-plus-circle"></i>
                     {user.role === 'teacher' ? 'Create course' : 'Participate'}
@@ -72,4 +71,4 @@ function Courses() {
     )
 }
 
-export default Courses
+export default CourseLists

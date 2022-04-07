@@ -13,9 +13,9 @@ function App() {
       {/* <Footer /> */}
       {/* <HomePage /> */}
       <Routes>
-        <Route path="/" element={<LoginPage />}/>
+        <Route path="/" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />}/>
-        <Route path="/homepage" element={<HomePage />} />
+        <Route path="/homepage/*" element={<HomePage />} />
       </Routes>
     </div>
   )

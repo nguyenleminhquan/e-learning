@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { postNewUserInfo } from "../../redux/authenRedux/authenActions"
+import { useForm } from 'react-hook-form'
+import { useNavigate } from "react-router-dom"
+import { register } from "../../redux/authenRedux/authenActions"
 import Header from "../Header"
 import Footer from "../Footer"
 import '../../css/RegisterPage/index.css'
@@ -8,36 +10,29 @@ import '../../css/RegisterPage/index.css'
 function RegisterPage() {
     console.log('Register page re-render')
     
+    const navigate = useNavigate()
     const dispatch = useDispatch()
-    const user = useSelector(state => state.user)
-
-    const [firstname, setFirstname] = useState('')
-    const [lastname, setLastname] = useState('')
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const { register, handleSubmit, formState: {errors} } = useForm()
     const [role, setRole] = useState('')
-    const [dob, setDob] = useState('')
     const [gender, setGender] = useState('')
-
-    const [errorMsg, setErrorMsg] = useState('')
+    const failureMsg = useSelector(state => state.failureMsg)
     
-    const handleSubmit = event => {
-        event.preventDefault()
-        
-        const userInfo = { firstname, lastname, username, password, role, dob, gender }
-        dispatch(postNewUserInfo(userInfo))
+    const onSubmit = data => {
+        const userInfo = {...data, role, gender}
+        dispatch(register(userInfo))
 
-        if (user.status === 400) {
-            setErrorMsg(user.msg)
-        } 
+        if (failureMsg === '') {
+            setTimeout(() => {
+                navigate('/')
+            }, 2000)
+        }
     }
     return (
-        <div className="">
+        <div className="register-page">
             <Header />
-            <div className="register-page mx-auto">
-                {errorMsg ?? <div className="error-msg">{errorMsg}</div>}
+            <div className="register-form mx-auto">
                 <p className="fs-1 text-center pt-3 pb-3">Register</p>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="d-flex pb-3">
                         <div className="me-2">
                             <label htmlFor="firstname" className="form-label">First Name</label>
@@ -46,10 +41,11 @@ function RegisterPage() {
                                 className="form-control"
                                 type="text"
                                 placeholder="Enter your first name"
-                                value={firstname}
-                                onChange={e => setFirstname(e.target.value)}
-                                required
+                                {...register('firstname', {
+                                    required: 'This is required'
+                                })}
                             />
+                            <p className="error-msg">{errors.firstname?.message}</p>
                         </div>
                         <div>
                             <label htmlFor="lastname" className="form-label">Last Name</label>
@@ -58,10 +54,11 @@ function RegisterPage() {
                                 className="form-control"
                                 type="text"
                                 placeholder="Enter your last name"
-                                value={lastname}
-                                onChange={e => setLastname(e.target.value)}
-                                required
+                                {...register('lastname', {
+                                    required: 'This is required'
+                                })}
                             />
+                            <p className="error-msg">{errors.lastname?.message}</p>
                         </div>
                     </div>
                     <div className="pb-3">
@@ -71,10 +68,11 @@ function RegisterPage() {
                             className="form-control"
                             type="text"
                             placeholder="Enter your username"
-                            value={username}
-                            onChange={e => setUsername(e.target.value)}
-                            required
+                            {...register('username', {
+                                required: 'This is required'
+                            })}
                         />
+                        <p className="error-msg">{errors.username?.message}</p>
                     </div>
 
                     <div className="pb-3">
@@ -84,10 +82,11 @@ function RegisterPage() {
                             className="form-control"
                             type="password"
                             placeholder="Enter your password"
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
-                            required
+                            {...register('password', {
+                                required: 'This is required'
+                            })}
                         />
+                        <p className="error-msg">{errors.password?.message}</p>
                     </div>
 
                     <div className="d-flex align-items-center pb-3">
@@ -106,10 +105,11 @@ function RegisterPage() {
                             className="form-control"
                             type="date"
                             placeholder="Enter your date of birth"
-                            value={dob}
-                            onChange={e => setDob(e.target.value)}
-                            required
+                            {...register('dob', {
+                                required: 'This is required'
+                            })}
                         />
+                        <p className="error-msg">{errors.dob?.message}</p>
                     </div>
 
                     <div className="d-flex pb-3">

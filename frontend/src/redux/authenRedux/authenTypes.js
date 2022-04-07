@@ -6,4 +6,3 @@ export const REGISTER_SUCCESS = 'register_success'
 export const REGISTER_FAILURE = 'register_error'
 
 export const LOGOUT = 'logout'
-

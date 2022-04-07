@@ -13,6 +13,7 @@ const initState = {
     registerSuccess: false,
     loginSuccess: false,
     isRegistering: false,
+    failureMsg: '',
     user: user
 }
 
@@ -29,24 +30,28 @@ const reducer = (state = initState, action) => {
             return {
                 ...state,
                 registerSuccess: true,
+                failureMsg: '',
                 user: action.payload
             }
         case REGISTER_FAILURE:
             return {
                 ...state,
                 registerSuccess: false,
+                failureMsg: action.payload,
                 user: {}
             }
         case LOGIN_SUCCESS:
             return {
                 ...state, 
                 loginSuccess: true,
+                failureMsg: '',
                 user: action.payload
             }
         case LOGIN_FAILURE: 
             return {
                 ...state, 
                 loginSuccess: false,
+                failureMsg: action.payload,
                 user: {}
             } 
         case LOGOUT: 
