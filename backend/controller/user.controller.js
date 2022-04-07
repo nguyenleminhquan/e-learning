@@ -7,11 +7,17 @@ const userRegister = async (req, res, next) => {
     const body = req.body
     // find exist account
     const exist = await User.findOne({ username: body.username })
-    
+
     if (exist) {
         return next(createError(400, "Username is exist"))
     } else {
         let newUser = new User(body)
+        if (newUser.gender != "male" && newUser.gender != "female") {
+            return next(createError(400, "Gender must follow the format provided"))
+        }
+        if (newUser.role != "student" && newUser.role != "teacher") {
+            return next(createError(400, "Role must follow the format provided"))
+        }
         try {
             console.log(1)
             newUser = await newUser.save()
@@ -20,7 +26,7 @@ const userRegister = async (req, res, next) => {
             })
             next()
         } catch (error) {
-            throw new Error(error)
+            next(error)
         }
     }
 }

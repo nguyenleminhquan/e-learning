@@ -7,6 +7,7 @@ import APINotFoundHandler from './middlewares/APINotFoundHandler.js'
 import connectDB from './config/db.js'
 
 import userRoutes from './routes/user.routes.js'
+import courseRoutes from './routes/course.routes.js'
 
 connectDB()
 dotenv.config()
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(helmet())
 
+app.use('/course', courseRoutes)
 app.use('/user', userRoutes)
 
 app.get('/', (req, res, next) => {
