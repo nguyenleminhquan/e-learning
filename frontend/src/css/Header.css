@@ -1,47 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@900&display=swap');
-
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 120px;   
-    background-color: #00d185;
-    padding: 0 60px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: var(--primary-color);
+    padding: 18px 50px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
-
 .header__logo-wrap {
     display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.header__logo_icon {
-    font-family: 'Libre Franklin', sans-serif;
-    background-color: #fff;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 24px;
-}
-
-.header__logo_name {
+    align-items: center;
     font-family: 'Chewy', cursive;
-    color: #fff;
-    font-size: 34px;
-    margin-left: 6px;
+    font-size: 32px;
 }
-
+.header__logo-wrap img {
+    max-height: 80px;
+    height: 80%;
+}
+h3 {
+    font-size: 20px;
+}
 .header__link {
     text-decoration: none;
-    font-size: 18px;
-    color: #fff;
-}
-
-.header__link:hover {
-    color: #038af8
+    color: var(--white-color);
 }

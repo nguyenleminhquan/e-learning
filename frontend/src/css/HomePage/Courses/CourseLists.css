@@ -1,0 +1,48 @@
+.courses {
+    margin-top: 30px;
+    /* margin-top: 170px; */
+}
+.courses__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.courses__header-title {
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-size: 28px;
+}
+.courses__header-btn {
+    background-color: #00d185;
+    color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 5px;   
+    padding: 12px 18px;
+    font-size: 18px;
+}
+.courses__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 30px 24px;
+    margin-bottom: 10px;
+}
+.courses__item-info {
+    flex: 1;
+}
+.courses__item-name {
+    font-family: 'Baloo Bhaijaan 2', cursive;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+.courses__item-details {
+    border: none;
+    font-size: 18px;
+    padding: 12px 16px;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #00d185;
+}

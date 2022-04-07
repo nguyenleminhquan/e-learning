@@ -1,9 +1,38 @@
 {
-  "accounts": [
+  "users": [
     {
       "id": 1,
-      "username": "tai123",
-      "password": "12345"
+      "name": "Phuoc Tai"
+    },
+    {
+      "firstname": "Trương",
+      "lastname": "Long",
+      "username": "truonglong288",
+      "password": "tellmegoodbye",
+      "role": "Student",
+      "dob": "2022-04-01",
+      "gender": "Male",
+      "id": 2
+    },
+    {
+      "firstname": "Tran",
+      "lastname": "Tai",
+      "username": "taiphuoctran123",
+      "password": "tai123",
+      "role": "Student",
+      "dob": "2001-02-22",
+      "gender": "Male",
+      "id": 3
+    },
+    {
+      "firstname": "Trương",
+      "lastname": "Long",
+      "username": "truonglong288",
+      "password": "tellmegoodbye",
+      "role": "Student",
+      "dob": "2001-08-29",
+      "gender": "Male",
+      "id": 4
     }
   ]
 }
