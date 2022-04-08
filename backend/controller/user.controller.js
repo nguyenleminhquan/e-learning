@@ -33,6 +33,7 @@ const userRegister = async (req, res, next) => {
 
 const userLogin = async (req, res, next) => {
     const { username, password } = req.body
+
     const exist = await User.findOne({ username: username })
 
     if (exist) {
@@ -49,7 +50,8 @@ const userLogin = async (req, res, next) => {
                 role: exist.role,
                 dob: exist.dob,
                 gender: exist.gender,
-                token: token
+                token: token,
+                courses: exist.course
             })
             next()
         } else {
@@ -58,6 +60,7 @@ const userLogin = async (req, res, next) => {
     } else {
         return next(createError(400, "No username found"))
     }
+
 }
 
 export {
