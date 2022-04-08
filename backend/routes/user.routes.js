@@ -5,14 +5,10 @@ import {
     userLogin,
     userRegister
 } from '../controller/user.controller.js'
-import {
-    getAllCourse
-} from '../controller/course.controller.js'
 
 
 const route = express.Router()
 
-route.get('/course', verifyToken, getAllCourse)
 route.post('/login', userLogin)
 route.post('/register', userRegister)
 
