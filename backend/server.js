@@ -20,7 +20,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 app.use(helmet())
 
-app.use('/course', courseRoutes)
 app.use('/user', userRoutes)
 
 app.get('/', (req, res, next) => {

@@ -41,7 +41,7 @@ const createCourse = async (req, res, next) => {
     }
 }
 
-const registerCourse = async (req, res, next) => {
+const attendCourse = async (req, res, next) => {
     const student = await User.findOne({ username: req.username })
     const idCourse = req.body.course
     try {
@@ -81,5 +81,5 @@ const registerCourse = async (req, res, next) => {
 
 export {
     createCourse,
-    registerCourse
+    attendCourse
 }
