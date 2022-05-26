@@ -1,24 +1,30 @@
-import { Route, Routes } from "react-router-dom"
-import LoginPage from "./components/LoginPage"
-import RegisterPage from "./components/RegisterPage"
-import HomePage from "./components/HomePage"
-
-import './App.css'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+// import { AuthenLayout } from './components/Layout';
+import AuthenLayout from './components/Layout/AuthenLayout'
+import {publicRoutes} from './routes'
+import Register from './page/Authen/Register'
+import MainLayout from './components/Layout/MainLayout';
 
 function App() {
   return (
-    <div id="app">
-      {/* <Header /> */}
-      {/* <LoginPage /> */}
-      {/* <Footer /> */}
-      {/* <HomePage /> */}
-      <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />}/>
-        <Route path="/homepage/*" element={<HomePage />} />
-      </Routes>
-    </div>
-  )
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          {publicRoutes.map((route, index) => {
+            const Layout = localStorage.getItem('userToken') ? MainLayout : AuthenLayout
+            const Page = route.element
+
+            return <Route key={index} path={route.path} element={
+              <Layout>
+                <Page />    
+                {/* <Register /> */}
+              </Layout>
+            } />
+          })}
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
