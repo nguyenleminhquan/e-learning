@@ -3,12 +3,14 @@
 
 :root {
     --primary-color: #00d185;
+    --hover-primary-color: #00B875;
     --text-color: #333;
     --white-color: #fff;
     --border-color: #ddd;
     
     // Main layout
     --sidebar-width: 120px;
+    --status-height: 100px;
 }
 
 * {

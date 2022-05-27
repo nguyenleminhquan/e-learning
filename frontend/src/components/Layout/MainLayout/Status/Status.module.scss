@@ -3,8 +3,8 @@
     left: calc(var(--sidebar-width) + 36px);
     top: 24px;
     background-color: #ddd;
-    min-width: calc(0.4 * 100vw);
-    height: 100px;
+    min-width: calc(0.5 * 100vw);
+    height: var(--status-height);
     display: flex;
     justify-content: space-between;
     align-items: center;

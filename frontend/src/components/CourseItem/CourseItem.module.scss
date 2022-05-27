@@ -1,0 +1,20 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    background-color: #ddd;
+    border-radius: 20px;
+    margin-bottom: 18px;
+
+    img {
+        width: 30%;
+    }
+}
+
+.info {
+    width: 50%;
+    p {
+        font-size: 1.2rem;
+    }
+}

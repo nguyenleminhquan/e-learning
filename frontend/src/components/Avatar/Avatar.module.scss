@@ -1,0 +1,25 @@
+.wrapper {
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-color);
+    user-select: none;
+    font-weight: 300;
+}
+
+.medium {
+    width: 70px;
+    height: 70px;
+    font-size: 2.2rem;
+    background-color: red;
+    color: var(--white-color);
+}
+
+.small {
+    width: 30px;
+    height: 30px;
+    font-size: 1.6rem;
+    background-color: red;
+    color: var(--white-color);
+}

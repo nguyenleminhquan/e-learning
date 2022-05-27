@@ -16,13 +16,7 @@ function Status() {
                 <h3>Hello {name}</h3>
                 <p>Good {time}</p>
             </div>
-            <Avatar 
-                width='70' 
-                height='70' 
-                backgroundColor='red' 
-                fontSize='2' 
-                name='T'
-            />
+            <Avatar medium text='T' />
         </div>   
     )
 }

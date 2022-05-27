@@ -1,18 +1,16 @@
+import className from 'classnames/bind'
+import styles from './Avatar.module.scss'
+
+const cx = className.bind(styles)
+
 function Avatar(props) {
-    const style = {
-        width: props.width + 'px',
-        height: props.height + 'px', 
-        backgroundColor: props.backgroundColor,
-        fontSize: props.fontSize + 'rem',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: '50%',
-        color: '#fff',
-    }
+    const classes = cx('wrapper', {
+        medium: props.medium,
+        small: props.small,
+    })
     return (
-        <div style={style}>
-            <span>{props.name}</span>
+        <div className={classes}>
+            <span>{props.text}</span>
         </div>
     )
 }
