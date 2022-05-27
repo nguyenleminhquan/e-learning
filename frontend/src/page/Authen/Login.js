@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { useForm } from 'react-hook-form'
@@ -37,6 +37,12 @@ function Login() {
 
         navigate('/home')
     }
+
+    useEffect(() => {
+        if (localStorage.getItem('userToken')) {
+            navigate('/home')
+        }
+    }, [])
 
     return (
         <div className={cx('wrapper')}>

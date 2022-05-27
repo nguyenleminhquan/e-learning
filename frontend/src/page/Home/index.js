@@ -1,9 +1,11 @@
+import { useEffect } from "react"
 import classNames from "classnames/bind"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faCirclePlus} from '@fortawesome/free-solid-svg-icons' 
 import Button from "../../components/Button"
 import styles from './Home.module.scss'
 import CourseItem from "../../components/CourseItem"
+import Error from "../Error"
 
 const cx = classNames.bind(styles)
 
@@ -26,6 +28,9 @@ const courses = [
     }
 ]
 function Home() {
+    if (!localStorage.getItem('userToken')) return (
+        <Error/>
+    ) 
     return (
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
