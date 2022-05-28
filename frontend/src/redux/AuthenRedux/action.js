@@ -6,7 +6,6 @@ import {
     REGISTER_SUCCESS,
     LOG_OUT,
     SET_CURRENT_AUTHEN_PAGE,
-    LOGIN_REQUEST
 } from "./type"
 
 const LOGIN_URL = '/user/login'
@@ -20,7 +19,6 @@ export const setCurrentAuthenPage = () => {
 
 export const login = userInfo => {
     return (dispatch) => {
-        dispatch(loginRequest())
         axios.post(LOGIN_URL, userInfo)
             .then(res => {
                 const userInfo = res.data
@@ -37,18 +35,13 @@ export const login = userInfo => {
             })
     }
 
-    function loginRequest() {
-        return {
-            type: LOGIN_REQUEST
-        }
-    }
-
     function loginSuccess(userInfo) {
         return {
             type: LOGIN_SUCCESS,
             userInfo
         }
     }
+
     function loginFailure(errMsg) {
         return {
             type: LOGIN_FAILURE,
@@ -61,9 +54,7 @@ export const register = (userInfo) => {
     return dispatch => {
         axios.post(REGISTER_URL, userInfo)
             .then(res => {
-                const msg = res.data
-            
-                dispatch(registerSuccess(msg))
+                dispatch(registerSuccess())
                 console.log('Register Successfully!')
             })
             .catch(err => {
@@ -74,12 +65,12 @@ export const register = (userInfo) => {
             })
     }
 
-    function registerSuccess(msg) {
+    function registerSuccess() {
         return {
             type: REGISTER_SUCCESS,
-            msg
         }
     }
+
     function registerFailure(errMsg) {
         return {
             type: REGISTER_FAILURE,

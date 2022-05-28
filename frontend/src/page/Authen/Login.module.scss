@@ -20,7 +20,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        margin-bottom: 12px;
+        margin-bottom: 14px;
         position: relative;
     }
 
@@ -40,7 +40,7 @@
 }
 
 .title {
-    margin-bottom: 24px;
+    margin-bottom: 15px;
     line-height: 3.5rem;
     font-size: 3.5rem;
 }
@@ -49,4 +49,9 @@
     position: absolute;
     right: 26px;
     cursor: pointer;
+}
+
+.errMsg {
+    color: var(--warning-color);
+    margin: 8px 0;
 }

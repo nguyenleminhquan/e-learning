@@ -13,7 +13,12 @@
 .title {
     font-size: 3.5rem;
     line-height: 3.5rem;
-    margin-bottom: 24px;
+    margin-bottom: 15px;
+}
+
+.errMsg {
+    color: var(--warning-color);
+    margin: 8px 0;
 }
 
 .form {
@@ -26,7 +31,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     
     label {
         min-width: 100px;

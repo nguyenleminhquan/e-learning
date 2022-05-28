@@ -1,6 +1,5 @@
 import { 
     LOGIN_FAILURE, 
-    LOGIN_REQUEST, 
     LOGIN_SUCCESS, 
     LOG_OUT, 
     REGISTER_FAILURE, 
@@ -24,15 +23,10 @@ const AuthenReducer = (state = initState, action) => {
         case SET_CURRENT_AUTHEN_PAGE:
             return {
                 ...state,
-                isRegistering: !state.isRegistering
+                isRegistering: !state.isRegistering,
+                failureMsg: '',
             }
-        
-        case LOGIN_REQUEST: 
-            return {
-                ...state,
-                loading: true,
-            }
-
+    
         case LOGIN_SUCCESS:
             return {
                 ...state,
@@ -50,23 +44,27 @@ const AuthenReducer = (state = initState, action) => {
                 loginSuccess: false,
                 failureMsg: action.errMsg
             }
+
         case REGISTER_SUCCESS:
             return {
                 ...state,
                 registerSuccess: true,
             }
+
         case REGISTER_FAILURE:
             return {
                 ...state, 
                 registerSuccess: false,
                 failureMsg: action.errMsg
             }
+
         case LOG_OUT:
             return {
                 ...state, 
                 loginSuccess: false,
                 userInfo: {}
             }
+
         default:
             return state
     }

@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { useForm } from 'react-hook-form'
+// import { useForm } from 'react-hook-form'
 import className from 'classnames/bind'
 import styles from './Register.module.scss'
 import { useNavigate } from "react-router-dom"
@@ -12,44 +12,56 @@ const cx = className.bind(styles)
 function Register() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const authenStore = useSelector(state => state.authen)
+    const [errMsg, setErrMsg] = useState('')
     // const { register, handleSubmit, formState: {errors} } = useForm()
-
     const [userInfo, setUserInfo] = useState({
         firstname: '',
         lastname: '',
+        username: '',
         password: '',
-        role: 'student',
-        dob: '',
         gender: 'male',
+        dob: '',
+        role: 'student',
     })
-    // const failureMsg = useSelector(state => state.failureMsg)
     
-    const onSubmit = data => {
-        // const userInfo = {...data, role, gender}
-        // dispatch(register(userInfo))
+    // const onSubmit = data => {
+    //     const userInfo = {...data, role, gender}
+    //     dispatch(register(userInfo))
 
-        // if (failureMsg === '') {
-        //     setTimeout(() => {
-        //         navigate('/')
-        //     }, 2000)
-        // }
-    }
+    //     if (failureMsg === '') {
+    //         setTimeout(() => {
+    //             navigate('/')
+    //         }, 2000)
+    //     }
+    // }
 
     const handleSubmitForm = e => {
-        e.preventDefault()
-
+        e.preventDefault()  
         dispatch(register(userInfo))
     }
+
+    useEffect(() => {
+        if (authenStore.registerSuccess) {
+            navigate('/')
+        }
+    })
+
+    useEffect(() => {
+        setErrMsg(authenStore.failureMsg)
+    }, [authenStore.failureMsg])
 
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>
                 <h2 className={cx('title')}>Register</h2>
+                <span className={cx('errMsg')}>{errMsg && errMsg}</span>
                 <form className={cx('form')} onSubmit={handleSubmitForm}>
                     <div className={cx('form-wrap')}>
                         <label htmlFor="name">Name</label>
                         <div className={cx('name-wrap')}>
                             <input 
+                                required
                                 type="text"
                                 name="name"
                                 placeholder="First Name"
@@ -60,6 +72,7 @@ function Register() {
                                 })}
                             />
                             <input 
+                                required
                                 type="text" 
                                 name="name"
                                 placeholder="Last Name"
@@ -76,6 +89,7 @@ function Register() {
                     <div className={cx('form-wrap')}>
                         <label htmlFor="username">Username</label>
                         <input 
+                            required
                             type="text"
                             name="username"
                             placeholder="Username"
@@ -90,6 +104,7 @@ function Register() {
                     <div className={cx('form-wrap')}>
                         <label htmlFor="password">Password</label>
                         <input 
+                            required
                             type="password"
                             name="password"
                             placeholder="Password"
@@ -116,6 +131,7 @@ function Register() {
                     <div className={cx('form-wrap')}>
                         <label htmlFor="dob">Date of birth</label>
                         <input 
+                            required
                             type="date" 
                             name="dob"
                             placeholder="Date of birth" 

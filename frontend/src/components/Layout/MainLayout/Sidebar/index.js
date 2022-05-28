@@ -25,16 +25,16 @@ function Sidebar() {
                 <img src={images.logo.default} alt="E-learning 1.0" width='70%' />
                 <ul>
                     <li>
-                        <a href="#"><FontAwesomeIcon icon={faHouse}/></a>
+                        <a href="/"><FontAwesomeIcon icon={faHouse}/></a>
                     </li>
                     <li>
-                        <a href="#"><FontAwesomeIcon icon={faUser}/></a>
+                        <a href="/"><FontAwesomeIcon icon={faUser}/></a>
                     </li>
                     <li>
-                        <a href="#"><FontAwesomeIcon icon={faEnvelope}/></a>
+                        <a href="/"><FontAwesomeIcon icon={faEnvelope}/></a>
                     </li>
                     <li>
-                        <a href="#"><FontAwesomeIcon icon={faGear}/></a>
+                        <a href="/"><FontAwesomeIcon icon={faGear}/></a>
                     </li>
                 </ul>
             </div>
