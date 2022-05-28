@@ -5,6 +5,7 @@ import className from 'classnames/bind'
 import styles from './Register.module.scss'
 import { useNavigate } from "react-router-dom"
 import { register } from '../../redux/AuthenRedux/action'
+import Button from '../../components/Button'
 
 const cx = className.bind(styles)
 
@@ -45,29 +46,52 @@ function Register() {
             <div className={cx('content')}>
                 <h2 className={cx('title')}>Register</h2>
                 <form className={cx('form')} onSubmit={handleSubmitForm}>
-                    <div>
+                    <div className={cx('form-wrap')}>
+                        <label htmlFor="name">Name</label>
+                        <div className={cx('name-wrap')}>
+                            <input 
+                                type="text"
+                                name="name"
+                                placeholder="First Name"
+                                value={userInfo.firstname}
+                                onChange={(e) => setUserInfo({
+                                    ...userInfo,
+                                    firstname: e.target.value
+                                })}
+                            />
+                            <input 
+                                type="text" 
+                                name="name"
+                                placeholder="Last Name"
+                                value={userInfo.lastname}
+                                onChange={e => setUserInfo({
+                                    ...userInfo,
+                                    lastname: e.target.value
+                                })}
+                            />
+
+                        </div>
+                    </div>
+
+                    <div className={cx('form-wrap')}>
+                        <label htmlFor="username">Username</label>
                         <input 
                             type="text"
-                            placeholder="Firstname" 
-                            value={userInfo.firstname}
+                            name="username"
+                            placeholder="Username"
+                            value={userInfo.username}
                             onChange={e => setUserInfo({
                                 ...userInfo,
-                                firstname: e.target.value
-                            })}
-                        />
-                        <input 
-                            type="text"
-                            placeholder="Lastname" 
-                            value={userInfo.lastname}
-                            onChange={e => setUserInfo({
-                                ...userInfo,
-                                lastname: e.target.value
+                                username: e.target.value
                             })}
                         />
                     </div>
-                    <div>
+
+                    <div className={cx('form-wrap')}>
+                        <label htmlFor="password">Password</label>
                         <input 
-                            type="password" 
+                            type="password"
+                            name="password"
                             placeholder="Password"
                             value={userInfo.password}
                             onChange={e => setUserInfo({
@@ -76,14 +100,24 @@ function Register() {
                             })}
                         />
                     </div>
-                    <div onChange={e => {setUserInfo(e.target.value)}}>
-                        <label htmlFor="role">Role</label>
-                        <input type="radio" name="role" value='student' defaultChecked /> Student
-                        <input type="radio" name="role" value='teacher' /> Teacher
+
+                    <div className={cx('form-wrap')} onChange={e => {setUserInfo(e.target.value)}}>
+                        <label htmlFor="gender">Gender</label>
+                        <div className={cx('radio-wrap')}>
+                            <input type="radio" name="gender" value='male' defaultChecked />
+                            <span>Male</span>
+                        </div>
+                        <div className={cx('radio-wrap')}>
+                            <input type="radio" name="gender" value='female' />
+                            <span>Female</span>
+                        </div>
                     </div>
-                    <div>
+
+                    <div className={cx('form-wrap')}>
+                        <label htmlFor="dob">Date of birth</label>
                         <input 
                             type="date" 
+                            name="dob"
                             placeholder="Date of birth" 
                             value={userInfo.dob}
                             onChange={e => setUserInfo({
@@ -93,18 +127,23 @@ function Register() {
                         />
                     </div>
 
-                    <div onChange={e => {setUserInfo(e.target.value)}}>
-                        <label htmlFor="gender">Gender</label>
-                        <input type="radio" name="gender" value='male' defaultChecked /> Male
-                        <input type="radio" name="gender" value='female' /> Female
+                    <div className={cx('form-wrap')} onChange={e => {setUserInfo(e.target.value)}}>
+                        <label htmlFor="role">Role</label>
+                        <div className={cx('radio-wrap')}>
+                            <input type="radio" name="role" value='student' defaultChecked />
+                            <span>Student</span>
+                        </div>
+                        <div className={cx('radio-wrap')}>
+                            <input type="radio" name="role" value='teacher' />
+                            <span>Teacher</span>
+                        </div>
                     </div>
 
-                    <div>
-                        <button>Register</button>
+                    <div className={cx('btn-wrap')}>
+                        <Button primary rounded fullWidth>Register</Button>
                     </div>
                 </form>
             </div>
-            
         </div>
     )   
 }

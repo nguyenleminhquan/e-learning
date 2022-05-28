@@ -11,7 +11,7 @@ function App() {
       <div className="App">
         <Routes>
           {publicRoutes.map((route, index) => {
-            const Layout = localStorage.getItem('userToken') ? MainLayout : AuthenLayout
+            const Layout = localStorage.getItem('userInfo') ? MainLayout : AuthenLayout
             const Page = route.element
 
             return <Route key={index} path={route.path} element={

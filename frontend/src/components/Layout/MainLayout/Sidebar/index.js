@@ -4,10 +4,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faGear, faHouse, faUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import styles from './Sidebar.module.scss'
 import images from '../../../../assets/images'
+import { useDispatch } from 'react-redux'
+import { logout } from '../../../../redux/AuthenRedux/action'
+import { useNavigate } from 'react-router-dom'
 
 const cx = className.bind(styles)
 
 function Sidebar() {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const handleLogout = () => {
+        dispatch(logout())
+        navigate('/')
+    }
+    
     return (
         <div className={cx('wrapper')}>
             <div className={cx('navigate')}>
@@ -27,7 +38,7 @@ function Sidebar() {
                     </li>
                 </ul>
             </div>
-            <div className={cx('logout')}>
+            <div className={cx('logout')} onClick={() => handleLogout()}>
                 <FontAwesomeIcon icon={faRightFromBracket}/>
             </div>
         </div>

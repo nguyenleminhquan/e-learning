@@ -10,6 +10,8 @@ function Button(props) {
     const classes = cx('wrapper', {
         primary: props.primary,
         outline: props.outline,
+        rounded: props.rounded,
+        fullWidth: props.fullWidth,
     })
 
     let Comp = 'button'

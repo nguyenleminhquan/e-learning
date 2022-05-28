@@ -6,6 +6,7 @@
     background-color: var(--primary-color);
     display: flex;
     justify-content: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 .content {
@@ -31,6 +32,7 @@
     }
 }
 
-.authen-navigate {
+.link {
     color: var(--white-color);
+    font-weight: 400;
 }

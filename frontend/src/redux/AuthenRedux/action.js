@@ -4,20 +4,29 @@ import {
     LOGIN_SUCCESS, 
     REGISTER_FAILURE, 
     REGISTER_SUCCESS,
-    LOG_OUT
+    LOG_OUT,
+    SET_CURRENT_AUTHEN_PAGE,
+    LOGIN_REQUEST
 } from "./type"
 
 const LOGIN_URL = '/user/login'
 const REGISTER_URL = '/user/register'
 
+export const setCurrentAuthenPage = () => {
+    return {
+        type: SET_CURRENT_AUTHEN_PAGE
+    }
+}
+
 export const login = userInfo => {
-    return dispatch => {
+    return (dispatch) => {
+        dispatch(loginRequest())
         axios.post(LOGIN_URL, userInfo)
             .then(res => {
-                const token = res.data.token
+                const userInfo = res.data
 
-                localStorage.setItem('userToken', token)
-                dispatch(loginSuccess(token))
+                localStorage.setItem('userInfo', JSON.stringify(userInfo))
+                dispatch(loginSuccess(userInfo))
                 console.log('Login Successfully!')
             })
             .catch(err => {
@@ -28,10 +37,16 @@ export const login = userInfo => {
             })
     }
 
-    function loginSuccess(token) {
+    function loginRequest() {
+        return {
+            type: LOGIN_REQUEST
+        }
+    }
+
+    function loginSuccess(userInfo) {
         return {
             type: LOGIN_SUCCESS,
-            token
+            userInfo
         }
     }
     function loginFailure(errMsg) {
@@ -74,6 +89,8 @@ export const register = (userInfo) => {
 }
 
 export const logout = () => {
+    localStorage.removeItem('userInfo')
+
     return {
         type: LOG_OUT,
     }

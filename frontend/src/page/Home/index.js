@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import classNames from "classnames/bind"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faCirclePlus} from '@fortawesome/free-solid-svg-icons' 
@@ -28,7 +27,7 @@ const courses = [
     }
 ]
 function Home() {
-    if (!localStorage.getItem('userToken')) return (
+    if (!localStorage.getItem('userInfo')) return (
         <Error/>
     ) 
     return (

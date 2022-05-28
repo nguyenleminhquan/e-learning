@@ -1,8 +1,10 @@
-import Authen from '../page/Authen'
+import Login from '../page/Authen/Login'
+import Register from '../page/Authen/Register'
 import Home from '../page/Home'
 
 export const publicRoutes = [
-    {path: '/', element: Authen},
+    {path: '/', element: Login},
+    {path: '/register', element: Register},
     {path: '/home', element: Home}
 ]
 
