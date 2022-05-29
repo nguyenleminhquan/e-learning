@@ -1,0 +1,22 @@
+.status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-color);
+
+    span {
+        font-size: 12rem;
+    }
+
+    & .icon {
+        font-size: 9rem;
+    }
+
+    span +.icon, .icon + span {
+        margin-left: 18px;
+    }
+}
+
+.message {
+    margin-top: 24px;
+}

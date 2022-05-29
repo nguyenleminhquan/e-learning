@@ -1,0 +1,56 @@
+.wrapper {
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    min-width: 100px;
+    border-radius: 4px;
+    padding: 6px 10px;
+    background-color: var(--white-color);
+    border: 1px solid transparent;
+    cursor: pointer;
+    line-height: normal;
+
+    &.fullWidth {
+        width: 100%;
+    }
+}
+
+.icon + .title, .title + .icon {
+    margin-left: 8px;
+}
+
+// Button type
+.primary {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+
+    &:hover {
+        background-color: var(--hover-primary-color);
+    }
+}
+
+.outline {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+
+    &:hover {
+        background-color: #effff9;
+    }
+}
+
+.text {
+    border-color: #ddd;
+    border-radius: 0;
+    
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.rounded {
+    border-radius: 9999px;
+    
+    &:hover {
+        background-color: var(--hover-primary-color);
+    }
+}

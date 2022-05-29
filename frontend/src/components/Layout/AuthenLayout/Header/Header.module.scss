@@ -1,0 +1,38 @@
+.wrapper {
+    --authen-header-height: 120px;
+
+    width: 100%;
+    height: var(--authen-header-height);
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    box-shadow: 5px 0 8px #333;
+}
+
+.content {
+    width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-wrap {
+    display: flex;
+    align-items: center;
+
+    img {
+        display: block;
+        height: calc(var(--authen-header-height) - var(--authen-header-height)*0.2);
+    }
+
+    span {
+        font-size: 3.4rem;
+        font-weight: bolder;
+        color: var(--white-color);
+    }
+}
+
+.link {
+    color: var(--white-color);
+    font-weight: 400;
+}
