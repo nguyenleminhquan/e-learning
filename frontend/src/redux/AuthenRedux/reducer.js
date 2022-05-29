@@ -7,7 +7,7 @@ import {
     SET_CURRENT_AUTHEN_PAGE
 } from "./type"
 
-const userInfo = localStorage.getItem('userInfo') ?? {}
+const userInfo = JSON.parse(localStorage.getItem('userInfo')) ?? {}
 
 const initState = {
     loading: false,

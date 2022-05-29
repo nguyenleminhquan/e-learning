@@ -46,8 +46,8 @@ function Login() {
     
     useEffect(() => {
         if (authenStore.loginSuccess) {
-            setUsername('')
-            setPassword('')
+            // setUsername('')
+            // setPassword('')
             navigate('/home')
         }
     })
@@ -55,6 +55,10 @@ function Login() {
     useEffect(() => {
         setErrMsg(authenStore.failureMsg)
     }, [authenStore.failureMsg])
+
+    useEffect(() => {
+        document.title = 'Login'
+    }, [])
 
     return (
         <div className={cx('wrapper')}>

@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import classNames from "classnames/bind"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {faCirclePlus} from '@fortawesome/free-solid-svg-icons' 
@@ -5,6 +6,7 @@ import Button from "../../components/Button"
 import styles from './Home.module.scss'
 import CourseItem from "../../components/CourseItem"
 import Error from "../Error"
+import { useSelector } from "react-redux"
 
 const cx = classNames.bind(styles)
 
@@ -27,6 +29,12 @@ const courses = [
     }
 ]
 function Home() {
+    const userInfo = useSelector(state => state.authen.userInfo)
+
+    useEffect(() => {
+        document.title = 'E-learning - Home'
+    }, [])
+
     if (!localStorage.getItem('userInfo')) return (
         <Error/>
     ) 
@@ -34,7 +42,13 @@ function Home() {
         <div className={cx('wrapper')}>
             <div className={cx('header')}>
                 <h2>Courses</h2>
-                <Button primary leftIcon={<FontAwesomeIcon icon={faCirclePlus}/>}>Participate</Button>
+                <Button 
+                    to={userInfo === 'student' ? '/participate' : '/create'}
+                    primary 
+                    leftIcon={<FontAwesomeIcon icon={faCirclePlus} />}
+                >
+                    {userInfo.role === 'student' ? 'Participate' : 'Create'}
+                </Button>
             </div>
             <div className={cx('course-list')}>
                 {courses.map((course, index) => (

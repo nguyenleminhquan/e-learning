@@ -16,10 +16,10 @@ function Header() {
   return (
     <header className={cx('wrapper')}>
       <div className={cx('content')}>
-        <div className={cx('logo-wrap')}>
-            <img src={images.logo.default} alt="E-learning 1.0" />
-            <span>learning</span>
-        </div>
+        <Link className={cx('logo-wrap')} to="/">
+          <img src={images.logo.default} alt="E-learning 1.0" />
+          <span>learning</span>
+        </Link>
         <Link 
           className={cx('link')}
           to={curPath}

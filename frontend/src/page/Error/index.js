@@ -13,7 +13,7 @@ function Error() {
 
     setTimeout(() => {
         setCount(count-1)
-        if (count == 0) navigate('/')
+        if (count === 0) navigate('/')
     }, 1000)
 
     return (

@@ -51,6 +51,10 @@ function Register() {
         setErrMsg(authenStore.failureMsg)
     }, [authenStore.failureMsg])
 
+    useEffect(() => {
+        document.title = 'Register'
+    }, [])
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('content')}>

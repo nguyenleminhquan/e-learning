@@ -1,0 +1,76 @@
+.wrapper {
+    position: relative;
+    left: calc(var(--sidebar-width) + 36px);
+    top: calc(var(--status-height) + 48px);
+    width: calc(0.5*100vw);
+    margin-top: 12px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    margin-bottom: 12px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    padding: 12px 24px; 
+    margin: auto;
+    background-color: var(--white-color);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.5);
+}
+
+.form-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    label {
+        min-width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--primary-color);
+        border-radius: 4px;
+        padding: 4px 2px;
+        line-height: normal;
+        font-weight: 500;
+        color: var(--primary-color);
+    }
+
+    input {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.6rem;
+        min-width: 300px;
+        padding: 6px 4px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+    }
+
+    input[type="file"] {
+        width: 200px;
+    }
+
+    textarea {
+        min-width: 300px;
+        height: 100px;
+        padding: 6px 4px;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.6rem;
+        resize: none;
+        outline: none;
+    }
+}
+
+.custom-btn {
+    min-width: 150px;
+}

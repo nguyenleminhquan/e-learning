@@ -1,19 +1,34 @@
 import classNames from "classnames/bind"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSelector } from 'react-redux'
 import Avatar from "../../../Avatar"
 import styles from './Status.module.scss'
 
 const cx = classNames.bind(styles)
 
 function Status() {
-    // Get info from localStorage and save into useState
-    const [name, setName] = useState('Tran Phuoc Tai')
-    const [time, setTime] = useState('Morning')
+    const userInfo = useSelector(state => state.authen.userInfo)
+    const [time, setTime] = useState('')
+    const findTime = () => {
+        const hrs = new Date().getHours();
+        if (hrs === 0 || hrs < 12) {
+          return setTime('Morning');
+        }
+        if (hrs === 1 || hrs < 17) {
+          return setTime('Afternoon');
+        }
+        else {
+          return setTime('Evening');
+        }
+    };
+    useEffect(() => {
+        findTime();
+    }, []);
 
     return (
         <div className={cx("wrapper")}>
             <div className={cx('text')}>
-                <h3>Hello {name}</h3>
+                <h3>Hello {userInfo.first_name} {userInfo.last_name}</h3>
                 <p>Good {time}</p>
             </div>
             <Avatar medium text='T' />
@@ -22,4 +37,3 @@ function Status() {
 }
 
 export default Status
-
