@@ -34,6 +34,7 @@ const AuthenReducer = (state = initState, action) => {
                 loginSuccess: true,
                 registerSuccess: false,
                 userInfo: action.userInfo,
+                failureMsg: ''
             }
 
         case LOGIN_FAILURE:

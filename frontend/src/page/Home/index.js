@@ -43,7 +43,7 @@ function Home() {
             <div className={cx('header')}>
                 <h2>Courses</h2>
                 <Button 
-                    to={userInfo === 'student' ? '/participate' : '/create'}
+                    to={userInfo.role === 'teacher' ? 'create' : 'participate'}
                     primary 
                     leftIcon={<FontAwesomeIcon icon={faCirclePlus} />}
                 >

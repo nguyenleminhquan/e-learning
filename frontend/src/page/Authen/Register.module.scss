@@ -7,7 +7,8 @@
     padding: 24px;
     border-radius: 8px;
     background-color: var(--white-color);
-    box-shadow: 0 -4px 32px rgb(0 0 0 / 20%);
+    // box-shadow: 0 -4px 32px rgb(0 0 0 / 20%);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .title {
